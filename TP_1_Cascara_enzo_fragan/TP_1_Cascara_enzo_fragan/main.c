@@ -8,17 +8,12 @@ int main()
     int opcion=0;
     float numeroUno=0;
     float numeroDos=0;
+    float resultado;
+    float segundoFactor;
 
     do{
-        printf("1- Ingresar 1er operando (A= %f)\n",numeroUno);
-        printf("2- Ingresar 2do operando (B= %f)\n",numeroDos);
-        printf("3- Calcular la suma (A+B)\n");
-        printf("4- Calcular la resta (A-B)\n");
-        printf("5- Calcular la division (A/B)\n");
-        printf("6- Calcular la multiplicacion (A*B)\n");
-        printf("7- Calcular el factorial (A!)\n");
-        printf("8- Calcular todas las operacione\n");
-        printf("9- Salir\n");
+
+        opcion=menu(numeroUno, numeroDos);
 
         scanf("%d",&opcion);
         fflush(stdin);
@@ -26,26 +21,36 @@ int main()
         switch(opcion)
         {
             case 1:
-                numeroUno=valNum("ingrese el primer numero: ",99999,-99999);
+                numeroUno=valNum("ingrese el primer numero: ");
                 fflush(stdin);
-                printf("el numero es %f",numeroUno);
                 break;
             case 2:
-                printf("segundo numero: ");
+                numeroDos=valNum("ingrese el segundo numero: ");
                 fflush(stdin);
-                scanf("%f", &numeroDos);
                 break;
             case 3:
+                resultado=sumar(numeroUno,numeroDos);
+                printf("\nel resultado de la suma es: %f \n\n",resultado);
                 break;
             case 4:
+                resultado=restar(numeroUno,numeroDos);
+                printf("\nel resultado de la resta es: %f \n\n",resultado);
                 break;
             case 5:
+                resultado=dividir(numeroUno,numeroDos);
+                printf("\nel resultado de la divicion es: %f \n\n",resultado);
                 break;
             case 6:
+                resultado=multiplicar(numeroUno,numeroDos);
+                printf("\nel resultado de la multiplicacion es: %f \n\n",resultado);
                 break;
             case 7:
+                resultado=factores(numeroUno);
+                segundoFactor=factoresDos(numeroDos);
+                printf("\nel resultado del factor del primer numero es: %f \n\n y del segundo numero es: %f \n\n",resultado);
                 break;
             case 8:
+                resultado=operadores(numeroUno,numeroDos);
                 break;
             case 9:
                 fflush(stdin);
