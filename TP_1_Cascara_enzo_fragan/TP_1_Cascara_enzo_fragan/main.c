@@ -4,13 +4,12 @@
 
 int main()
 {
-    char seguir='s';
+    char seguir;
     int opcion=0;
     float numeroUno=0;
     float numeroDos=0;
 
-    while(seguir=='s')
-    {
+    do{
         printf("1- Ingresar 1er operando (A= %f)\n",numeroUno);
         printf("2- Ingresar 2do operando (B= %f)\n",numeroDos);
         printf("3- Calcular la suma (A+B)\n");
@@ -28,13 +27,13 @@ int main()
         {
             case 1:
                 numeroUno=valNum("ingrese el primer numero: ",99999,-99999);
-                //fflush(stdin);
+                fflush(stdin);
                 printf("el numero es %f",numeroUno);
                 break;
             case 2:
                 printf("segundo numero: ");
-                scanf("%f", &numeroDos);
                 fflush(stdin);
+                scanf("%f", &numeroDos);
                 break;
             case 3:
                 break;
@@ -49,9 +48,12 @@ int main()
             case 8:
                 break;
             case 9:
-                seguir = 'n';
+                fflush(stdin);
+                printf("Desea ingresar otro dato S/N?");
+                scanf("%c",&seguir);
                 break;
         }
+
+    }while(seguir!='n');
     return 0;
-    }
 }
